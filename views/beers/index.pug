@@ -1,0 +1,27 @@
+extends ../layouts/main.pug
+block content
+  .container
+    header
+      h1= title
+
+    div
+      table.table.table-striped
+        thead
+          tr
+            th  Name
+            th Brand
+            th Size
+        
+        tbody
+          each beer in beers
+            tr
+              td
+                a(href=`/beers/${beer.id}`)= beer.name
+              td= beer.brand
+              td= beer.size
+              td
+                a(href=`/beers/${beer.id}/edit`) edit
+                 = ` | `
+                form.destroy(action=`/beers/destroy`, method="POST",class="btn btn-danger")
+                  input(type="hidden", name="beer[id]", value=beer.id)
+                  input.destroy(type="submit", value="delete")

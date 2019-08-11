@@ -1,0 +1,22 @@
+form(action=(beer ? `/beers/update` : "/beers"), method="POST")
+  if beer
+    input(type="hidden", name="id", value=beer.id)
+
+  .form-group
+    label Name
+    input.form-control(name="beer[name]", required, value=(beer ? beer.name : null))
+
+  .form-group
+    label Brand
+    select.form-control(name="beer[brand]")
+      each brand in brands
+        option(value=brand.name, selected=(beer.brand === brand.name ? true : false))=brand.name
+
+  .form-group
+    label Size
+    select.form-control(name="beer[size]", required)
+      each size in ['CANS', 'BOTTLES','KEGS']
+        option(value=size, selected=(beer && beer.size === size ? true : false))= size.toLowerCase()
+  
+  .form-group
+    button.btn.btn-dark(type="submit") Submit

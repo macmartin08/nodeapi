@@ -1,0 +1,25 @@
+extends ../layouts/main.pug
+block content
+  .container
+    header
+      h1= title
+
+    div
+      table.table.table-striped
+        thead
+          tr
+            th  Name
+            th Country
+        
+        tbody
+          each brand in brands
+            tr
+              td
+                a(href=`/brands/${brand.id}`)= brand.name
+              td= brand.country
+              td
+                a(href=`/brands/${brand.id}/edit`) edit
+                 = ` | `
+                form.destroy(action=`/brands/destroy`, method="POST",class="btn btn-danger")
+                  input(type="hidden", name="brand[id]", value=brand.id)
+                  input.destroy(type="submit", value="delete")

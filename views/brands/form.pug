@@ -1,0 +1,15 @@
+form(action=(brand ? `/brands/update` : "/brands"), method="POST")
+  if brand
+    input(type="hidden", name="id", value=brand.id)
+
+  .form-group
+    label Name
+    input.form-control(name="brand[name]", required, value=(brand ? brand.name : null))
+
+  .form-group
+    label Country
+    textarea.form-control(name="brand[country]")
+      = brand ? brand.country : null
+  
+  .form-group
+    button.btn.btn-dark(type="submit") Submit

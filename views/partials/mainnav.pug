@@ -1,0 +1,40 @@
+doctype html
+html(lang='')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/css/style.css')
+    script(src='http://code.jquery.com/jquery-latest.min.js', type='text/javascript')
+    
+    title 
+  body
+    #cssmenu
+      ul
+        li.active
+          a(href='/')
+            span The Beer Store
+        li.has-sub
+          a(href='/brands')
+            span Brand
+          ul
+            li
+              a(href='/brands')
+                span All Brand
+            li
+              a(href='/brands/new')
+                span Create New
+            
+        li.has-sub
+          a(href='#')
+            span Beer
+          ul
+            li
+              a(href='/beers')
+                span All Beer
+            li.last
+              a(href='/beers/new')
+                span Enter New
+        li.last
+          a(href='#')
+            span Contact

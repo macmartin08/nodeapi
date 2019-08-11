@@ -1,0 +1,9 @@
+extends ../layouts/main.pug
+block content
+  .container
+    header
+      h1= beer.name
+      small= beer.size.toLowerCase()
+
+    div
+      = beer.brand 
